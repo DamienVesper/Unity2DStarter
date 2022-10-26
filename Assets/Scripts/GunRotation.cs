@@ -6,7 +6,7 @@ public class GunRotation : MonoBehaviour {
     private Vector2 mousePos; // A vector quantity containing current mouse position on the screen.
     private Vector3 offset = new Vector3(0.875f, 0, 0); // The offset of the gun relative to the player.
 
-    public Camera camera; // The camera attached to the scene.
+    public new Camera camera; // The camera attached to the scene.
     public Rigidbody2D rb; // The Rigidbody of the player.
 
     void Start () {
