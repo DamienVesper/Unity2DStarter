@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    public float speed;
-    private Vector3 movement;
-    public Rigidbody2D rb;
+    public float speed; // The constant velocity of the player when in motion.
+    private Vector3 movement; // The vector storing the normalized velocity quantity of the player.
+    public Rigidbody2D rb; // The rigidbody attached to the player.
 
-    // Update is called once per frame.
     void Update () {
+        // Set movement vector to normalized input.
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
     }
 
-    // Update is called once per tick.
     void FixedUpdate () {
+        // Set velocity to movement vector multiplied by a scalar.
         rb.velocity = movement * speed;
     }
 }
