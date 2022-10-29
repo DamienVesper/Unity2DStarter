@@ -6,12 +6,14 @@ public class GunRotation : MonoBehaviour {
     private Vector2 mousePos; // A vector quantity containing current mouse position on the screen.
     private Vector3 offset = new Vector3(0.875f, 0, 0); // The offset of the gun relative to the player.
 
+    private GameObject player; // The player's object.
     public new Camera camera; // The camera attached to the scene.
-    public Rigidbody2D rb; // The Rigidbody of the player.
+    public Rigidbody2D rb; // The Rigidbody of the gun.
 
     void Start () {
         // Set references.
         camera = Camera.main;
+        player = GameObject.Find("Player");
     }
 
     void Update () {
@@ -20,9 +22,8 @@ public class GunRotation : MonoBehaviour {
     }
 
     private void FixedUpdate () {
-        Vector3 playerPos = GameObject.Find("Player").transform.position;
-
         // The point on the scene the gun should face.
+        Vector3 playerPos = player.transform.position;
         Vector2 focusPoint = mousePos - new Vector2(playerPos.x, playerPos.y);
 
         // Calculate the angle of a line that passes through the focus point.
